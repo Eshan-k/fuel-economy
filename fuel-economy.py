@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 
 pd.options.display.max_columns = 50
 pd.options.display.width = 300
@@ -63,3 +62,10 @@ print(df_18.duplicated().sum())
 df_08.drop_duplicates(inplace=True)
 df_18.drop_duplicates(inplace=True)
 
+print(df_08.info())
+print(df_18.info())
+
+df_08['cyl'] = df_08['cyl'].str.extract('(\\d+)').astype(int)
+df_08['cyl'] = df_08['cyl'].astype(int)
+
+df_18['cyl'] = df_18['cyl'].astype(int)
